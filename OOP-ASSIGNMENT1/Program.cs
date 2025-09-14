@@ -10,14 +10,23 @@
             Car theCar = new Car();
             theCar.Drive();
 
-            Console.ReadLine() ;
+            Console.ReadLine();
             Console.WriteLine("Polymorfism! (press enter)");
             Console.ReadLine();
-            
+
 
             //it just prints the overridden class instead of both
             Shape circle = new Circle();
             circle.Draw();
+            Console.ReadLine();
+            Console.WriteLine("Inkapsling");
+            Console.WriteLine();
+
+            User user = new User("Jacob");
+            user.SetPassword("password");
+            Console.WriteLine(user.VerifyPassword("fel"));    //kommer vara fel
+            Console.WriteLine(user.VerifyPassword("password")); //kommer vara rätt 
+
         }
     }
 }
