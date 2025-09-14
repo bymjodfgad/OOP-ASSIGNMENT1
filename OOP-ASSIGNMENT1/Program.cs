@@ -27,6 +27,13 @@
             Console.WriteLine(user.VerifyPassword("fel"));    //kommer vara fel
             Console.WriteLine(user.VerifyPassword("password")); //kommer vara rätt 
 
+            Console.ReadLine();
+            Console.WriteLine("Abstraktion");
+            PaymentMethod payment = new CreditCard();
+            payment.Pay(499.99);
+
+            payment = new PayPal();
+            payment.Pay(69.99);
         }
     }
 }
