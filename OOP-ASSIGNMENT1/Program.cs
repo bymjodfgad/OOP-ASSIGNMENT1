@@ -4,36 +4,47 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Arv!= (press enter)");
-            Console.ReadLine();
-
+            Console.WriteLine("What do you wanna check?");
+            Console.WriteLine("1. Arv");
+            Console.WriteLine("2. Polymorfism");
+            Console.WriteLine("3. Inkapsling");
+            Console.WriteLine("4. Abstraktion");
+            int answer = Convert.ToInt32(Console.ReadLine());
             Car theCar = new Car();
-            theCar.Drive();
-
-            Console.ReadLine();
-            Console.WriteLine("Polymorfism! (press enter)");
-            Console.ReadLine();
-
-
-            //it just prints the overridden class instead of both
             Shape circle = new Circle();
-            circle.Draw();
-            Console.ReadLine();
-            Console.WriteLine("Inkapsling");
-            Console.WriteLine();
-
             User user = new User("Jacob");
-            user.SetPassword("password");
-            Console.WriteLine(user.VerifyPassword("fel"));    //kommer vara fel
-            Console.WriteLine(user.VerifyPassword("password")); //kommer vara rätt 
 
-            Console.ReadLine();
-            Console.WriteLine("Abstraktion");
-            PaymentMethod payment = new CreditCard();
-            payment.Pay(499.99);
+            switch (answer)
+            {
+                case 1:
+                    //prints class and subclass
+                    theCar.Drive();
+                    Console.ReadLine();
+                    break;
+                case 2:
+                    //overrides main class
+                    circle.Draw();
+                    Console.ReadLine();
+                    break;
+                case 3:
+                    user.SetPassword("password");
+                    Console.WriteLine(user.VerifyPassword("fel"));    //kommer vara fel
+                    Console.WriteLine(user.VerifyPassword("password")); //kommer vara rätt
+                    Console.ReadLine();
+                    break;
+                case 4:
+                    PaymentMethod payment = new CreditCard();
+                    payment.Pay(499.99);
+                    payment = new PayPal();
+                    payment.Pay(69.99);
+                    Console.ReadLine();
+                    break;
 
-            payment = new PayPal();
-            payment.Pay(69.99);
+            }
+            //clears console and resets back to main page
+            Console.Clear();
+            Main(args);
+            
         }
     }
 }
